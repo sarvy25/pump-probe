@@ -1,8 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-#def save_plot(filepath, **kwargs):
-#    print(type(kwargs))
+
 
 
 def init_plot(**kwargs):
@@ -98,9 +97,6 @@ def read_and_save_all_data_separately(input_folder, output_folder, delimiter='\t
         plt.savefig(cur_output_path)
 
 
-
-# sp_file_sim = read_file('text files/n and k_sample2.txt')
-#yyplot(wavelength, n, k,wavelength)
 if __name__ == '__main__':
     read_and_save_all_probe_data('pump_probe_data', 'output_plots')
 
