@@ -10,7 +10,6 @@ from sklearn.cluster import DBSCAN
 
 def process_sample_av(sample_root_path, ends_with='av.txt', filter_size= 25, xlim=[0, 6]):
 
-  #  outlier_detection = DBSCAN(min_samples=10, eps=0.07)
     def sort_key(txt_file):
        nums = re.findall(r'\d+\.*\d+', txt_file)
        return float(nums[1])
@@ -43,31 +42,16 @@ def process_sample_av(sample_root_path, ends_with='av.txt', filter_size= 25, xli
             data[:, 1] -= offset
             filter = np.ones(filter_size, dtype=np.float32) / filter_size
             data[:, 1] = np.convolve(data[:, 1], filter, 'same')
-            #data[:, 1] *= -1
 
             plt.plot(data[:, 0], (-1)*data[:,1]/R0 , linewidth=2)
             legends.append('$P$={}mW'.format(int(cur_pump)))
 
-        #plt.legend(legends)
         plt.xlim(xlim)
         plt.ylim([-3*10**-3, 2.4*10**-4])
-
-        #plt.ylim([-2**10-3, 0])
-      #  plt.title('$Au_{98} Ag_{2}$')
-       # plt.title('$Au_{98} Ag_{2}$')
         plt.ylabel('$\Delta R/R$')
         plt.xlabel('t(ps)')
-
         plt.ticklabel_format(axis='y', style='sci', scilimits=(-2,2))
-        #fig.show()
 
-
-
-
-
-  #  print(lambda_dirs)
-    #for lambda_dir in lambda_dirs:
 
 process_sample_av('data/AuAg/pump_probe_data/pump_probe_sample5')
 plt.show()
-#print(plt.get_cmap('tab20b'))
