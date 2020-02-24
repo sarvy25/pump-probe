@@ -22,7 +22,7 @@ def process_sample_av(sample_root_path, ends_with='av.txt', filter_size= 25, xli
             txt_files = [txt_file for txt_file in txt_files if txt_file.endswith(ends_with)]
 
         txt_files = sorted(txt_files, key=sort_key)
-        color.cycle_cmap(len(txt_files) , cmap='hsv')
+       # color.cycle_cmap(len(txt_files) , cmap='hsv')
         fig = plt.figure(lambda_i ,figsize=[8.9,6])
 
         legends = []
